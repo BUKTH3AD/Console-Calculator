@@ -6,6 +6,7 @@ namespace Console_Calculator
 {
     internal class Program
     {
+
         private static readonly Regex Format = new Regex(@"^(\d+)([+-\/*])(\d+)$");
         private static int _x;
         private static int _y;
@@ -43,13 +44,12 @@ namespace Console_Calculator
 
         private static bool CheckInput(string input)
         {
-            if (input == "exit")
+            if (input.Contains("exit"))
                 Environment.Exit(0);
 
-            if (input == "help")
+            if (input.ToLower().Contains("help"))
             {
-                Console.WriteLine("Введите два целых положительных числа до 1000, в формате \"x{+,-,*,/}y\"");
-
+                Help.General();
                 return false;
             }
 
